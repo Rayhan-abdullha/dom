@@ -1,26 +1,42 @@
-// console.log(window);
-// window.alert('coder')
+const buttons = document.querySelectorAll("button");
 
-// console.log(document.getElementById("div-id").innerHTML);
-// console.log(document.getElementById("div-id").innerText);
-// console.log(document.getElementById("div-id").textContent);
-
-// window.addEventListener("resize", () => {
-//   console.log(window.innerWidth);
-// });
-
-const divWidth = document.getElementById("div-id");
-divWidth.style.color = "red";
-
-// html collections
-let listItem = document.getElementsByClassName("list-item");
-
-// convert html collection to array
-listItem = Array.from(listItem);
-listItem.forEach((item) => {
-  item.style.color = "green";
+buttons.forEach((item) => {
+  item.addEventListener("click", () => {
+    let count = parseInt(item.dataset.clicks);
+    item.dataset.clicks = count + 1;
+    item.innerText = count;
+  });
 });
 
-let listItem1 = document.querySelectorAll(".list-item1");
+// form
+function todos() {
+  const input = document.querySelector("input");
+  const todos = document.querySelector(".todos");
+  const form = document.querySelector("#form-input-id");
+  const submit = document.querySelector("#submit");
+  const dispalay = document.querySelector("#add-todos");
 
-listItem1.forEach((item) => (item.style.color = "tomato"));
+  // input margin
+  todos.style.marginTop = "20px";
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    const value = input.value;
+    const p = document.createElement("p");
+    p.innerText = value;
+    dispalay.appendChild(p);
+    input.value = "";
+    submit.innerHTML = "send";
+    p.classList.add("test");
+    p.style.color = "red";
+    p.style.cursor = "pointer";
+
+    const items = document.querySelectorAll(".test");
+    console.log(items);
+    items.forEach((li) => {
+      li.addEventListener("click", function () {
+        li.remove();
+      });
+    });
+  });
+}
+todos();
