@@ -1,0 +1,32 @@
+body {
+  margin: 0;
+  height: 100vh;
+  display: grid;
+  place-content: center;
+}
+input {
+}
+.password-container {
+  display: flex;
+  align-items: center;
+}
+.password-input {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  flex: 1;
+  margin-right: 8px;
+}
+
+.toggle-button {
+  padding: 8px 16px;
+  border: 1px solid #007bff;
+  border-radius: 4px;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+}
+
+.toggle-button:hover {
+  background-color: #0056b3;
+}
